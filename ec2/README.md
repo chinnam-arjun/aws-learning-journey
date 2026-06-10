@@ -1,268 +1,126 @@
-# Amazon EC2 (Elastic Compute Cloud)
+# Amazon EC2 Learning Journey
 
-## Overview
+This directory documents my hands-on exploration of Amazon EC2 (Elastic Compute Cloud) as part of my AWS Cloud and DevOps learning journey.
 
-Amazon EC2 (Elastic Compute Cloud) is AWS's virtual server service that provides scalable compute capacity in the cloud.
-
-This section of the repository documents my hands-on exploration of EC2, including instance deployment, storage management, networking, monitoring, automation, troubleshooting, and production-level architecture concepts.
-
-The objective is not only to understand EC2 theoretically but also to gain practical cloud engineering experience through AWS Console activities, AWS CLI automation, troubleshooting exercises, and real-world implementation scenarios.
+The goal is to understand how cloud servers are deployed, managed, secured, monitored, and automated in AWS through practical labs, CLI exercises, troubleshooting scenarios, and mini-projects.
 
 ---
 
-# Learning Objectives
+## Objectives
 
-Through this EC2 journey, I aim to:
-
-* Understand how virtual machines operate in AWS.
-* Learn EC2 architecture and core concepts.
-* Deploy and manage Linux servers in AWS.
-* Configure networking and security for workloads.
-* Manage storage using EBS and snapshots.
-* Automate EC2 administration using AWS CLI.
-* Monitor and troubleshoot EC2 instances.
-* Explore scalability and high-availability patterns.
-* Build production-style cloud infrastructure.
+* Launch and manage EC2 instances
+* Understand instance types and AMIs
+* Configure Security Groups and networking
+* Connect to Linux servers using SSH
+* Work with EBS volumes and snapshots
+* Create custom AMIs
+* Monitor instances using CloudWatch
+* Practice EC2 administration using AWS CLI
+* Explore Load Balancers and Auto Scaling
+* Build real-world EC2-based projects
 
 ---
 
-# Topics Covered
+## Topics Covered
 
-## Phase 1: EC2 Fundamentals
+### EC2 Fundamentals
 
-* EC2 Overview
-* EC2 Architecture
+* Launching EC2 Instances
 * Instance Types
-* Amazon Machine Images (AMI)
+* Amazon Machine Images (AMIs)
 * Key Pairs
 * Security Groups
 * Elastic IP Addresses
 * User Data Scripts
-* EC2 Pricing Models
-* Instance Lifecycle
 
----
+### Storage
 
-## Phase 2: EC2 Storage
-
-* Amazon EBS Overview
-* EBS Volume Types
-* Volume Attachment
-* Filesystem Creation
-* Mounting Volumes
-* EBS Snapshots
+* EBS Volumes
+* EBS Volume Management
+* Snapshots
 * Snapshot Restoration
-* EBS Encryption
-* Instance Store
+* AMI Creation
 
----
+### Operations
 
-## Phase 3: EC2 Networking
+* Instance Lifecycle Management
+* Start / Stop / Reboot / Terminate
+* SSH Access
+* Monitoring and Logging
+* Troubleshooting
 
-* VPC and EC2 Relationship
-* Public and Private Instances
-* Elastic Network Interfaces (ENI)
-* Internet Gateway
-* Route Tables
-* Security Groups
-* Network ACLs
-* Network Troubleshooting
+### Scaling and Availability
 
----
-
-## Phase 4: EC2 Operations
-
-* Launching Instances
-* Starting and Stopping Instances
-* Rebooting Instances
-* Terminating Instances
-* Creating AMIs
-* Restoring AMIs
-* Modifying Instance Types
-* Connecting Through SSH
-* Managing EBS Attachments
-
----
-
-## Phase 5: Monitoring and Management
-
-* CloudWatch Metrics
-* CloudWatch Alarms
-* EC2 Status Checks
-* AWS Systems Manager
-* Session Manager
-* Operational Monitoring
-
----
-
-## Phase 6: Advanced EC2
-
-* Launch Templates
-* Auto Scaling Groups
-* Application Load Balancer
-* Network Load Balancer
+* Load Balancers
 * Target Groups
-* Placement Groups
-* Dedicated Hosts
-* EC2 Hibernate
+* Auto Scaling Groups
 
 ---
 
-## Phase 7: Troubleshooting Scenarios
-
-* SSH Connection Failures
-* Security Group Misconfigurations
-* Route Table Issues
-* Instance Reachability Problems
-* Failed Status Checks
-* Disk Space Problems
-* EBS Mount Failures
-* Application Accessibility Issues
-
----
-
-# Repository Structure
+## Repository Structure
 
 ```text
 ec2/
 │
 ├── README.md
 │
-├── fundamentals/
-│   ├── 01-ec2-overview.md
-│   ├── 02-ec2-architecture.md
-│   ├── 03-instance-types.md
-│   ├── 04-ami-overview.md
-│   ├── 05-key-pairs.md
-│   ├── 06-security-groups.md
-│   ├── 07-elastic-ip.md
-│   ├── 08-user-data.md
-│   ├── 09-pricing-models.md
-│   └── 10-instance-lifecycle.md
+├── 01-launching-my-first-ec2-instance.md
+├── 02-exploring-instance-types.md
+├── 03-working-with-security-groups.md
+├── 04-connecting-to-ec2-using-ssh.md
+├── 05-attaching-and-mounting-ebs.md
+├── 06-working-with-ebs-snapshots.md
+├── 07-creating-custom-amis.md
+├── 08-using-elastic-ip.md
+├── 09-ec2-monitoring-with-cloudwatch.md
+├── 10-load-balancer-and-auto-scaling-lab.md
 │
-├── storage/
-│   ├── 01-ebs-overview.md
-│   ├── 02-ebs-volume-types.md
-│   ├── 03-volume-management.md
-│   ├── 04-ebs-snapshots.md
-│   ├── 05-ebs-encryption.md
-│   └── 06-instance-store.md
-│
-├── networking/
-│   ├── 01-vpc-and-ec2.md
-│   ├── 02-public-vs-private.md
-│   ├── 03-elastic-network-interface.md
-│   ├── 04-route-tables.md
-│   ├── 05-security-groups-vs-nacl.md
-│   └── 06-network-troubleshooting.md
-│
-├── operations/
-│   ├── 01-launch-instance-cli.md
-│   ├── 02-instance-management.md
-│   ├── 03-ami-creation.md
-│   ├── 04-volume-operations.md
-│   └── 05-ssh-connectivity.md
-│
-├── monitoring/
-│   ├── 01-cloudwatch-metrics.md
-│   ├── 02-cloudwatch-alarms.md
-│   ├── 03-status-checks.md
-│   └── 04-systems-manager.md
-│
-├── advanced/
-│   ├── 01-launch-templates.md
-│   ├── 02-auto-scaling-groups.md
-│   ├── 03-load-balancers.md
-│   ├── 04-target-groups.md
-│   ├── 05-placement-groups.md
-│   └── 06-dedicated-hosts.md
-│
-└── troubleshooting/
-    ├── 01-ssh-failure.md
-    ├── 02-ebs-mount-failure.md
-    ├── 03-status-check-failure.md
-    ├── 04-network-connectivity.md
-    └── 05-application-not-reachable.md
+└── projects/
 ```
 
 ---
 
-# Tools and Technologies
+## What You'll Find In Each Topic
 
-The following tools are used throughout this repository:
+Most topics include:
 
-* Amazon EC2
-* Amazon EBS
-* Amazon VPC
-* AWS CLI
-* AWS CloudWatch
-* AWS Systems Manager
-* Ubuntu Linux
-* SSH
-* Bash Shell
-* Git
-* GitHub
+* Objective
+* Services Used
+* Concepts Learned
+* Hands-On Activities
+* AWS CLI Commands
+* Validation Steps
+* Problems Encountered
+* Observations
+* Lessons Learned
+* Screenshots
+* Architecture Notes (when applicable)
 
 ---
 
-# Skills Demonstrated
+## Skills Demonstrated
 
-This repository demonstrates practical experience in:
-
-* Cloud Infrastructure Management
-* AWS CLI Administration
-* Linux Server Administration
+* AWS EC2 Administration
+* Linux Server Management
+* AWS CLI Usage
 * Networking Fundamentals
 * Storage Management
 * Security Configuration
-* Monitoring and Alerting
-* Troubleshooting Methodology
-* Infrastructure Automation
-* High Availability Design
+* Monitoring and Troubleshooting
+* Infrastructure Operations
 
 ---
 
-# Documentation Standards
+## Portfolio Goal
 
-Each topic includes:
+This repository is designed to showcase practical AWS experience through hands-on activities rather than theoretical notes.
 
-* Concept Overview
-* Core Concepts
-* Architecture Understanding
-* AWS Console Walkthrough
-* AWS CLI Practice
-* Hands-On Lab
-* Execution Process
-* Observations
-* Learnings
-* Troubleshooting Notes
-* Real-World Relevance
-* Interview Preparation
-* GitHub-Friendly Summary
+The focus is on demonstrating:
 
-The focus is on documenting actual engineering activities rather than creating certification-style notes.
+* What I built
+* What I practiced
+* What I learned
+* What issues I faced
+* How I solved them
 
----
-
-# Portfolio Perspective
-
-This repository serves as evidence of practical AWS experience and demonstrates:
-
-* Hands-on cloud administration
-* Infrastructure deployment skills
-* AWS CLI proficiency
-* Operational troubleshooting ability
-* Cloud architecture understanding
-* DevOps-oriented thinking
-
-The goal is to showcase a progression from AWS beginner to a cloud and DevOps engineer capable of working with production-oriented AWS environments.
-
----
-
-# Key Takeaways
-
-* EC2 is the foundation of compute services in AWS.
-* Understanding EC2 requires knowledge of compute, storage, networking, and security.
-* AWS CLI automation is critical for efficient cloud operations.
-* Real-world cloud engineering involves deployment, monitoring, troubleshooting, and optimization.
-* Hands-on practice provides deeper understanding than theory alone.
+while developing cloud engineering and DevOps skills using AWS.
